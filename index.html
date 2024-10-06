@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
+    
+    <!--Lenis CDN for smooth scrolling-->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -37,6 +40,22 @@
   </head>
 
   <body>
+    <!--Lenis for Smooth Scrolling-->
+    <script>
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      })
+  
+      function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+  
+      requestAnimationFrame(raf)
+    </script>
+
     <!-- Navbar Start -->
     <div class="container-fluid bg-light position-relative shadow">
       <nav

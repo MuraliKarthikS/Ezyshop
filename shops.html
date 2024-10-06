@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="utf-8">
     <title>Ezyshop - Shops</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <!--Lenis CDN for smooth scrolling-->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,6 +36,23 @@
 </head>
 
 <body>
+
+    <!--Lenis for Smooth Scrolling-->
+    <script>
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smooth: true,
+        })
+    
+        function raf(time) {
+          lenis.raf(time)
+          requestAnimationFrame(raf)
+        }
+    
+        requestAnimationFrame(raf)
+      </script>
+
     <!-- Navbar Start -->
     <div class="container-fluid bg-light position-relative shadow">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
